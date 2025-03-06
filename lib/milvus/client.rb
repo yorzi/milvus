@@ -56,7 +56,7 @@ module Milvus
           faraday.request :authorization, :Bearer, api_key
         end
         faraday.request :json
-        faraday.response :logger, logger, {headers: true, bodies: true, errors: true}
+        faraday.response :logger, logger, {headers: true, bodies: false, errors: true}
         faraday.response :raise_error if raise_error
         faraday.response :json, content_type: /\bjson$/
         faraday.adapter adapter
